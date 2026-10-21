@@ -4,16 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thai Show Entertainment</title>
-
-    <!-- เรียกใช้ CSS กลางที่คุมเรื่องฟอนต์และแทบ Navbar -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome สำหรับไอคอน -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รับงานแสดง | Thai Show Entertainment</title>
 
     <!-- ดึงฟอนต์ Kanit จาก Google Fonts -->
@@ -22,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome สำหรับไอคอน -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         * {
@@ -161,12 +151,18 @@
             box-shadow: 0 10px 25px rgba(255, 152, 0, 0.2);
         }
 
-        .show-img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            object-position: center;
-            display: block;
+        .show-item img {
+    width: 100% !important;
+    height: 280px !important; /* บังคับให้ทุกรูปสูง 280px เท่ากันเป๊ะ */
+    object-fit: cover !important; /* ตัดส่วนที่ล้นออก ไม่ให้ภาพบี้หรือยืด */
+    
+    /* บังคับโฟกัสจากจุดกึ่งกลาง แต่เลื่อนขึ้นไปใกล้ขอบบน เพื่อไม่ให้หัวขาด */
+    object-position: center 15% !important; 
+    
+    display: block;
+}
+}
+}
         }
 
         .show-details {
@@ -437,22 +433,25 @@
         <!-- รายการโชว์พร้อมรูปภาพ -->
         <div class="show-list">
 
-            <!-- 1. โขน -->
+            <!-- 1. ควงกระบองไฟ (แทนที่โขน) -->
             <div class="show-item">
-                <img src="images/khon.jpg" alt="การแสดงโขนไทย" class="show-img">
+                <img src="images/fireshow.jpg" alt="การแสดงควงกระบองไฟ" class="show-img" onerror="this.src='images/show.jpg'">
                 <div class="show-details">
-                    <h3>🎭 การแสดงโขน</h3>
-                    <p>การแสดงโขนไทยวิจิตรตระการตา พร้อมเครื่องแต่งกายและนักแสดงมืออาชีพ สำหรับงานพิธีการหรืองานต้อนรับแขกสำคัญ</p>
-                    <button class="gallery-btn" onclick="openModal('khonModal')">
+                    <h3>🔥 การแสดงควงกระบองไฟ</h3>
+                    <p>โชว์ควงกระบองไฟสุดตื่นตาตื่นใจ ผสมผสานเทคนิคการเล่นไฟหลากหลายรูปแบบ ปลอดภัยด้วยทีมนักแสดงมืออาชีพ</p>
+                    <button class="gallery-btn" onclick="openModal('fireModal')">
                         <i class="fa-regular fa-image"></i> ดูภาพการแสดงเพิ่มเติม
                     </button>
                 </div>
             </div>
 
             <!-- 2. มวยไทย -->
-            <div class="show-item">
-                <img src="images/muaythai.jpg" alt="การแสดงมวยไทย" class="show-img">
-                <div class="show-details">
+            <!-- 2. มวยไทย -->
+<div class="show-item">
+    <img src="images/muaythai.jpg" alt="การแสดงมวยไทย" class="show-img" style="object-position: top;"> 
+    <!-- 👆 เติม style ด้านบนเข้าไปตรงนี้ครับ -->
+    <div class="show-details">
+        ...
                     <h3>🥊 การแสดงมวยไทย</h3>
                     <p>ศิลปะการต่อสู้ไทยประยุกต์ เน้นความตื่นเต้น เร้าใจ และความแข็งแกร่งอันเป็นเอกลักษณ์</p>
                     <button class="gallery-btn" onclick="openModal('muaythaiModal')">
@@ -498,21 +497,21 @@
          MODAL GALLERIES (หน้าต่างอัลบั้มภาพการแสดง)
     ========================================== -->
 
-    <!-- 1. Modal การแสดงโขน -->
-    <div id="khonModal" class="modal">
+    <!-- 1. Modal การแสดงควงกระบองไฟ -->
+    <div id="fireModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">🎭 ภาพบรรยากาศการแสดงโขน</div>
-                <span class="close-btn" onclick="closeModal('khonModal')">&times;</span>
+                <div class="modal-title">🔥 ภาพบรรยากาศการแสดงควงกระบองไฟ</div>
+                <span class="close-btn" onclick="closeModal('fireModal')">&times;</span>
             </div>
-            <p style="color: #aaa; font-size: 15px; margin-bottom: 15px;">ประมวลภาพการแสดงโขนไทยวิจิตรตระการตา โดยทีมงาน Thai Show Entertainment</p>
+            <p style="color: #aaa; font-size: 15px; margin-bottom: 15px;">ประมวลภาพการแสดงควงกระบองไฟ พ่นไฟ และเอฟเฟกต์ไฟสุดเร้าใจ โดยทีมงาน Thai Show Entertainment</p>
             <div class="modal-gallery-grid">
-                <img src="images/khon-1.jpg" alt="การแสดงโขน 1" onerror="this.src='images/khon.jpg'">
-                <img src="images/khon-2.jpg" alt="การแสดงโขน 2" onerror="this.src='images/khon.jpg'">
-                <img src="images/khon-3.jpg" alt="การแสดงโขน 3" onerror="this.src='images/khon.jpg'">
-                <img src="images/khon-4.jpg" alt="การแสดงโขน 4" onerror="this.src='images/khon.jpg'">
-                <img src="images/khon-5.jpg" alt="การแสดงโขน 5" onerror="this.src='images/khon.jpg'">
-                <img src="images/khon-6.jpg" alt="การแสดงโขน 6" onerror="this.src='images/khon.jpg'">
+                <img src="images/fire-1.jpg" alt="การแสดงควงกระบองไฟ 1" onerror="this.src='images/fireshow.jpg'">
+                <img src="images/fire-2.jpg" alt="การแสดงควงกระบองไฟ 2" onerror="this.src='images/fireshow.jpg'">
+                <img src="images/fire-3.jpg" alt="การแสดงควงกระบองไฟ 3" onerror="this.src='images/fireshow.jpg'">
+                <img src="images/fire-4.jpg" alt="การแสดงควงกระบองไฟ 4" onerror="this.src='images/fireshow.jpg'">
+                <img src="images/fire-5.jpg" alt="การแสดงควงกระบองไฟ 5" onerror="this.src='images/fireshow.jpg'">
+                <img src="images/fire-6.jpg" alt="การแสดงควงกระบองไฟ 6" onerror="this.src='images/fireshow.jpg'">
             </div>
         </div>
     </div>
