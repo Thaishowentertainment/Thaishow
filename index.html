@@ -284,7 +284,40 @@ footer {
         justify-content: center;
     }
 }
+/* =========================
+   WORKS GALLERY GRID
+========================= */
+.works-grid {
+    display: grid;
+    /* จัดคอลัมน์อัตโนมัติ: จอใหญ่แสดงหลายรูป จอเล็กจะหดเหลือรูปเดียว */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.work-item {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.work-item:hover {
+    border-color: #ff9800;
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
+
+.work-item img {
+   .work-item img {
+    width: 100%;
+    height: 300px; /* ผมปรับความสูงเพิ่มให้นิดนึง ภาพจะได้ดูไม่อึดอัดครับ */
+    object-fit: cover; /* ตัดส่วนเกินออกให้พอดีกล่อง */
+    object-position: top; /* 👈 บังคับให้โฟกัสจากส่วนบนสุดของภาพ ป้องกันหัวขาด! */
+    display: block;
+}
+}
 </style>
 </head>
 
@@ -405,6 +438,19 @@ footer {
 
     <h2 class="section-title">
         ผลงานของเรา
+        <!-- =========================
+     ผลงาน
+========================= -->
+<section class="services" id="works">
+
+
+    <!-- แกลเลอรีผลงาน -->
+    <div class="works-grid">
+        <div class="work-item">
+            <img src="images/work-1.jpg" alt="ผลงานที่ 1" onerror="this.src='images/show.jpg'">
+        </div>
+    
+</section>
     </h2>
 
 </section>
